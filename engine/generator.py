@@ -17,7 +17,7 @@ def generate_assets(resume_json, jd_text, client):
     
     cl_res = client.chat.completions.create(
         messages=[{"role": "user", "content": cl_prompt}], 
-        model="llama-3.1-8b-instant"
+        model="llama-3.3-70b-versatile"
     )
     
     # Interview questions logic
