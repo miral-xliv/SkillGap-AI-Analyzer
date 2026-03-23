@@ -25,7 +25,16 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 load_dotenv()
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+try:
+    api_key = st.secrets["GROQ_API_KEY"]
+except Exception:
+    api_key = os.getenv("GROQ_API_KEY")
+
+if not api_key:
+    st.error("❌ GROQ_API_KEY is missing! Please add it in Streamlit Secrets.")
+    st.stop()
+
+client = Groq(api_key=api_key)
 
 # -----------------------------
 # SESSION STATE
