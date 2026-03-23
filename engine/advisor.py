@@ -1,9 +1,22 @@
 import os
+import streamlit as st
 from groq import Groq
 
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+def get_client():
+    try:
+        api_key = st.secrets["GROQ_API_KEY"]
+    except Exception:
+        from dotenv import load_dotenv
+        load_dotenv()
+        api_key = os.getenv("GROQ_API_KEY")
+
+    if not api_key:
+        raise ValueError("GROQ_API_KEY is missing!")
+
+    return Groq(api_key=api_key)
 
 def get_career_advice(user_query, gap_context):
+    client: Groq = get_client()
     """
     Level 10: Career Advisor Agent.
     Strictly provides concise, necessary answers based on identified gaps.
@@ -23,7 +36,7 @@ def get_career_advice(user_query, gap_context):
             {"role": "system", "content": system_instruction},
             {"role": "user", "content": user_query}
         ],
-        model="llama-3.1-8b-instant",
-        temperature=0.3, # Lower temperature makes the AI more direct and less creative
+        model="llama-3.3-70b-versatile",
+        temperature=0.5, # Lower temperature makes the AI more direct and less creative
     )
     return response.choices[0].message.content
