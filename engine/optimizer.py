@@ -1,9 +1,16 @@
 import os
+import streamlit as st
 from groq import Groq
 from dotenv import load_dotenv
 
-load_dotenv()
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+try:
+    api_key = st.secrets["GROQ_API_KEY"]
+except:
+    from dotenv import load_dotenv
+    load_dotenv()
+    api_key = os.getenv("GROQ_API_KEY")
+
+client = Groq(api_key=api_key)
 
 def get_gap_analysis(data, jd_input, client):
     """Identifies missing skills like Vector Search and LLM frameworks."""
