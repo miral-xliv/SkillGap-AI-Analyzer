@@ -8,48 +8,37 @@ from groq import Groq
 
 st.markdown("""
 <style>
-    /* 1. STRETCH THE GRADIENT TO THE ENTIRE PAGE */
-    /* This prevents the "white cut-off" at the bottom */
+    /* 1. Force the app background to cover everything */
     .stApp {
-        background: linear-gradient(to bottom, #e8f5e9, #ffffff) !important;
+        background: linear-gradient(to bottom, #e0f2f1, #ffffff) !important;
         background-attachment: fixed !important;
     }
 
-    /* 2. HIDE THE TOP BAR & FOOTER */
-    header, footer, #MainMenu {
-        visibility: hidden;
-        height: 0;
-    }
+    /* 2. Hide headers/footers */
+    header, footer, #MainMenu {visibility: hidden !important;}
 
-    /* 3. REMOVE THE WHITE BOX BEHIND THE INPUT */
-    /* This targets the exact container causing that white bar */
-    section[data-testid="stBottom"], 
-    div[data-testid="stBottomBlockContainer"] {
-        background: transparent !important;
+    /* 3. THE NUCLEAR FIX: Force EVERYTHING in the bottom section to be transparent */
+    section[data-testid="stBottom"] *, 
+    div[data-testid="stBottomBlockContainer"] * {
         background-color: transparent !important;
-    }
-
-    /* 4. CLEAN UP THE INPUT AREA */
-    div[data-testid="stChatInputContainer"] {
-        background: transparent !important;
+        border: none !important;
         box-shadow: none !important;
-        border: none !important;
     }
 
-    /* 5. STYLE THE INPUT BOX (MODERN PILL SHAPE) */
+    /* 4. RE-APPLY STYLE TO JUST THE INPUT BOX */
+    /* Since we made everything transparent above, we must specifically color the text area again */
     textarea[data-testid="stChatInputTextArea"] {
-        background-color: rgba(255, 255, 255, 0.6) !important; /* Glass effect */
+        background-color: rgba(0, 0, 0, 0.05) !important; /* Light grey tint so you can see it */
         border: 1px solid rgba(0, 0, 0, 0.1) !important;
-        border-radius: 20px !important;
-        color: #333 !important;
+        border-radius: 15px !important;
+        color: inherit !important;
     }
 
-    /* 6. REMOVE RED/GREY OUTLINE ON THE WRAPPER */
-    div[data-testid="stChatInput"] {
-        border: none !important;
-        background: transparent !important;
+    /* 5. Fix the container height so it doesn't overlap your buttons */
+    div[data-testid="stChatInputContainer"] {
+        padding-top: 10px !important;
+        padding-bottom: 20px !important;
     }
-
 </style>
 """, unsafe_allow_html=True)
 
