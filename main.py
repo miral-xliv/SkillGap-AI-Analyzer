@@ -12,7 +12,7 @@ st.markdown("""
         footer {visibility: hidden;}
         #MainMenu {visibility: hidden;}
 
-        /* Remove all white boxes */
+        /* Remove all white/gray boxes */
         .stBottom {background-color: transparent !important;}
         .stBottom > div {background-color: transparent !important;}
         section[data-testid="stBottom"] > div {
@@ -20,8 +20,6 @@ st.markdown("""
             box-shadow: none !important;
             border: none !important;
         }
-
-        /* Input container transparent */
         .stChatInput {background-color: transparent !important;}
         .stChatInput > div {
             background-color: transparent !important;
@@ -35,8 +33,11 @@ st.markdown("""
             padding: 0 !important;
         }
 
-        /* The actual input box — teal rounded pill */
-        div[data-testid="stChatInputContainer"] textarea {
+        /* Input box — teal border, transparent, rounded */
+        div[data-testid="stChatInputContainer"] textarea,
+        div[data-testid="stChatInputContainer"] textarea:focus,
+        div[data-testid="stChatInputContainer"] textarea:active,
+        div[data-testid="stChatInputContainer"] textarea:hover {
             background-color: transparent !important;
             border: 1.5px solid #00acc1 !important;
             border-radius: 25px !important;
@@ -47,18 +48,21 @@ st.markdown("""
             outline: none !important;
         }
 
-        /* Remove red/any color on focus */
-        div[data-testid="stChatInputContainer"] textarea:focus {
-            border: 1.5px solid #00acc1 !important;
+        /* Kill red focus ring on the outer container */
+        div[data-testid="stChatInputContainer"]:focus-within {
+            border: none !important;
             box-shadow: none !important;
             outline: none !important;
         }
 
         /* Send button */
-        div[data-testid="stChatInputContainer"] button {
+        div[data-testid="stChatInputContainer"] button,
+        div[data-testid="stChatInputContainer"] button:focus,
+        div[data-testid="stChatInputContainer"] button:hover {
             background-color: transparent !important;
             border: none !important;
             box-shadow: none !important;
+            outline: none !important;
         }
     </style>
 """, unsafe_allow_html=True)
