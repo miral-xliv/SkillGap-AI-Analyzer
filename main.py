@@ -11,40 +11,54 @@ st.markdown("""
         header {visibility: hidden;}
         footer {visibility: hidden;}
         #MainMenu {visibility: hidden;}
-        
-        /* Remove ALL white boxes */
-        .stChatInput { background-color: transparent !important; }
-        .stChatInput > div { background-color: transparent !important; }
-        .stBottom { background-color: transparent !important; }
-        .stBottom > div { background-color: transparent !important; }
+
+        /* Remove all white boxes */
+        .stBottom {background-color: transparent !important;}
+        .stBottom > div {background-color: transparent !important;}
         section[data-testid="stBottom"] > div {
             background-color: transparent !important;
             box-shadow: none !important;
             border: none !important;
         }
-        
-        /* Input box — pill shape, transparent background */
-        .stChatInput textarea {
-            background-color: transparent !important;
-            border-radius: 30px !important;
-            border: 1.5px solid #00acc1 !important;
-            padding: 12px 20px !important;
-            font-size: 15px !important;
-            color: #333 !important;
-        }
-        
-        /* Remove inner container background */
-        .stChatInput div[data-testid="stChatInputContainer"] {
-            background-color: transparent !important;
-            border-radius: 30px !important;
-            border: 1.5px solid #00acc1 !important;
-        }
-        
-        /* Send button */
-        .stChatInput button {
-            border-radius: 50% !important;
+
+        /* Input container transparent */
+        .stChatInput {background-color: transparent !important;}
+        .stChatInput > div {
             background-color: transparent !important;
             border: none !important;
+            box-shadow: none !important;
+        }
+        div[data-testid="stChatInputContainer"] {
+            background-color: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+        }
+
+        /* The actual input box — teal rounded pill */
+        div[data-testid="stChatInputContainer"] textarea {
+            background-color: transparent !important;
+            border: 1.5px solid #00acc1 !important;
+            border-radius: 25px !important;
+            padding: 10px 18px !important;
+            font-size: 15px !important;
+            color: #333 !important;
+            box-shadow: none !important;
+            outline: none !important;
+        }
+
+        /* Remove red/any color on focus */
+        div[data-testid="stChatInputContainer"] textarea:focus {
+            border: 1.5px solid #00acc1 !important;
+            box-shadow: none !important;
+            outline: none !important;
+        }
+
+        /* Send button */
+        div[data-testid="stChatInputContainer"] button {
+            background-color: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
         }
     </style>
 """, unsafe_allow_html=True)
