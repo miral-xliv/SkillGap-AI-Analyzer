@@ -9,18 +9,29 @@ from groq import Groq
 st.markdown("""
 <style>
 
-/* Remove white container behind input */
-div[data-testid="stChatInputContainer"] {
+/* Remove bottom sticky area */
+section[data-testid="stBottom"] {
     background: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
 }
 
-/* Keep SAME shape, only improve color */
+/* Remove white container */
+div[data-testid="stChatInputContainer"] {
+    background: transparent !important;
+}
+
+/* Remove inner wrapper box */
+div[data-testid="stChatInput"] {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Keep only one clean input */
 textarea[data-testid="stChatInputTextArea"] {
-    background-color: rgba(255,255,255,0.05) !important;  /* very light */
-    color: inherit !important;  /* auto text color */
-    border: 1px solid rgba(0,0,0,0.2) !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: inherit !important;
 }
 
 /* Placeholder */
