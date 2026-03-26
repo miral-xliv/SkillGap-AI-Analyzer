@@ -8,9 +8,16 @@ from groq import Groq
 
 st.markdown("""
     <style>
-    header {visibility: hidden;}
-    footer {visibility: hidden;}
-    #MainMenu {visibility: hidden;}
+        header {visibility: hidden;}
+        footer {visibility: hidden;}
+        #MainMenu {visibility: hidden;}
+        
+        .stChatInput { background-color: transparent !important; }
+        .stChatInput textarea {
+            background-color: transparent !important;
+            border-radius: 20px !important;
+            border: 1.5px solid #00acc1 !important;
+        }
     </style>
 """, unsafe_allow_html=True)
 
