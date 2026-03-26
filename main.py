@@ -12,44 +12,44 @@ st.markdown("""
         footer {visibility: hidden;}
         #MainMenu {visibility: hidden;}
 
-        /* Kill every white/gray background */
+        /* Remove all backgrounds */
         .stBottom, .stBottom > div,
         .stChatInput, .stChatInput > div,
         section[data-testid="stBottom"],
-        section[data-testid="stBottom"] > div,
+        section[data-testid="stBottom"] > div {
+            background-color: transparent !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+
+        /* Outer container — no red ring */
         div[data-testid="stChatInputContainer"] {
-            background-color: transparent !important;
-            box-shadow: none !important;
-            border: none !important;
-        }
-
-        /* Kill red focus ring — this is the main culprit */
-        div[data-testid="stChatInputContainer"],
-        div[data-testid="stChatInputContainer"]:focus,
-        div[data-testid="stChatInputContainer"]:focus-within,
-        div[data-testid="stChatInputContainer"]:hover,
-        div[data-testid="stChatInputContainer"]:active {
-            border: none !important;
-            outline: none !important;
-            box-shadow: none !important;
-            background-color: transparent !important;
-        }
-
-        /* Style only the textarea itself */
-        div[data-testid="stChatInputContainer"] textarea,
-        div[data-testid="stChatInputContainer"] textarea:focus,
-        div[data-testid="stChatInputContainer"] textarea:focus-within,
-        div[data-testid="stChatInputContainer"] textarea:hover,
-        div[data-testid="stChatInputContainer"] textarea:active {
             background-color: transparent !important;
             border: 1.5px solid #00acc1 !important;
             border-radius: 25px !important;
-            padding: 10px 18px !important;
-            font-size: 15px !important;
-            color: #333 !important;
             box-shadow: none !important;
             outline: none !important;
-            resize: none !important;
+            padding: 2px !important;
+        }
+
+        div[data-testid="stChatInputContainer"]:focus-within {
+            border: 1.5px solid #00acc1 !important;
+            box-shadow: none !important;
+            outline: none !important;
+        }
+
+        /* Inner textarea — transparent, no border */
+        div[data-testid="stChatInputContainer"] textarea,
+        div[data-testid="stChatInputContainer"] textarea:focus,
+        div[data-testid="stChatInputContainer"] textarea:hover {
+            background-color: transparent !important;
+            border: none !important;
+            border-radius: 25px !important;
+            padding: 10px 18px !important;
+            font-size: 15px !important;
+            color: #333333 !important;
+            box-shadow: none !important;
+            outline: none !important;
         }
 
         /* Send button */
