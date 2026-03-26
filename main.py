@@ -12,12 +12,28 @@ st.markdown("""
         footer {visibility: hidden;}
         #MainMenu {visibility: hidden;}
         
+        /* Remove white box behind input */
         .stChatInput { background-color: transparent !important; }
+        .stChatInput > div { background-color: transparent !important; }
         .stChatInput textarea {
             background-color: transparent !important;
             border-radius: 20px !important;
             border: 1.5px solid #00acc1 !important;
         }
+        
+        /* Remove the outer white container */
+        [data-testid="stChatInput"] {
+            background-color: transparent !important;
+            box-shadow: none !important;
+        }
+        [data-testid="stChatInput"] > div {
+            background-color: transparent !important;
+            box-shadow: none !important;
+        }
+        
+        /* Bottom bar area */
+        .stBottom { background-color: transparent !important; }
+        .stBottom > div { background-color: transparent !important; }
     </style>
 """, unsafe_allow_html=True)
 
