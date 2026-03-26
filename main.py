@@ -6,6 +6,14 @@ import plotly.express as px
 from dotenv import load_dotenv
 from groq import Groq
 
+st.markdown("""
+    <style>
+    header {visibility: hidden;}
+    footer {visibility: hidden;}
+    #MainMenu {visibility: hidden;}
+    </style>
+""", unsafe_allow_html=True)
+
 # -----------------------------
 # BACKEND IMPORTS
 # -----------------------------
