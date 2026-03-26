@@ -8,39 +8,43 @@ from groq import Groq
 
 st.markdown("""
 <style>
-    /* 1. Hide Header & Footer */
+    /* 1. STRETCH THE GRADIENT TO THE ENTIRE PAGE */
+    /* This prevents the "white cut-off" at the bottom */
+    .stApp {
+        background: linear-gradient(to bottom, #e8f5e9, #ffffff) !important;
+        background-attachment: fixed !important;
+    }
+
+    /* 2. HIDE THE TOP BAR & FOOTER */
     header, footer, #MainMenu {
         visibility: hidden;
         height: 0;
     }
 
-    /* 2. THE FIX: Remove the white background from the bottom area */
-    /* We target both the section and the inner block container */
+    /* 3. REMOVE THE WHITE BOX BEHIND THE INPUT */
+    /* This targets the exact container causing that white bar */
     section[data-testid="stBottom"], 
     div[data-testid="stBottomBlockContainer"] {
         background: transparent !important;
         background-color: transparent !important;
-        border: none !important;
     }
 
-    /* 3. Clean up the Chat Input Container */
+    /* 4. CLEAN UP THE INPUT AREA */
     div[data-testid="stChatInputContainer"] {
         background: transparent !important;
         box-shadow: none !important;
         border: none !important;
-        padding-bottom: 30px; /* Gives the input some "breathing room" from the bottom edge */
     }
 
-    /* 4. Style the Input Field itself */
-    /* This creates the subtle grey/translucent box you see in your image */
+    /* 5. STYLE THE INPUT BOX (MODERN PILL SHAPE) */
     textarea[data-testid="stChatInputTextArea"] {
-        background-color: rgba(0, 0, 0, 0.05) !important; /* Light grey tint */
-        border: 1px solid rgba(0, 0, 0, 0.1) !important; /* Thin border */
-        border-radius: 12px !important;
-        color: inherit !important;
+        background-color: rgba(255, 255, 255, 0.6) !important; /* Glass effect */
+        border: 1px solid rgba(0, 0, 0, 0.1) !important;
+        border-radius: 20px !important;
+        color: #333 !important;
     }
 
-    /* 5. Optional: Remove the white 'glow' that sometimes appears on focus */
+    /* 6. REMOVE RED/GREY OUTLINE ON THE WRAPPER */
     div[data-testid="stChatInput"] {
         border: none !important;
         background: transparent !important;
