@@ -12,28 +12,40 @@ st.markdown("""
         footer {visibility: hidden;}
         #MainMenu {visibility: hidden;}
         
-        /* Remove white box behind input */
+        /* Remove ALL white boxes */
         .stChatInput { background-color: transparent !important; }
         .stChatInput > div { background-color: transparent !important; }
+        .stBottom { background-color: transparent !important; }
+        .stBottom > div { background-color: transparent !important; }
+        section[data-testid="stBottom"] > div {
+            background-color: transparent !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+        
+        /* Input box — pill shape, transparent background */
         .stChatInput textarea {
             background-color: transparent !important;
-            border-radius: 20px !important;
+            border-radius: 30px !important;
+            border: 1.5px solid #00acc1 !important;
+            padding: 12px 20px !important;
+            font-size: 15px !important;
+            color: #333 !important;
+        }
+        
+        /* Remove inner container background */
+        .stChatInput div[data-testid="stChatInputContainer"] {
+            background-color: transparent !important;
+            border-radius: 30px !important;
             border: 1.5px solid #00acc1 !important;
         }
         
-        /* Remove the outer white container */
-        [data-testid="stChatInput"] {
+        /* Send button */
+        .stChatInput button {
+            border-radius: 50% !important;
             background-color: transparent !important;
-            box-shadow: none !important;
+            border: none !important;
         }
-        [data-testid="stChatInput"] > div {
-            background-color: transparent !important;
-            box-shadow: none !important;
-        }
-        
-        /* Bottom bar area */
-        .stBottom { background-color: transparent !important; }
-        .stBottom > div { background-color: transparent !important; }
     </style>
 """, unsafe_allow_html=True)
 
