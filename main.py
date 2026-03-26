@@ -24,7 +24,7 @@ st.markdown("""
         /* Add padding at bottom so content
         doesn't hide behind input box */
         .main .block-container {
-            padding-bottom: 100px !important;
+            padding-bottom: 200px !important;
         }
 
         /* Textarea transparent */
