@@ -7,40 +7,34 @@ from dotenv import load_dotenv
 from groq import Groq
 
 st.markdown("""
-<style>
+    <style>
+        header {visibility: hidden;}
+        footer {visibility: hidden;}
+        #MainMenu {visibility: hidden;}
 
-/* Hide default Streamlit UI */
-header {visibility: hidden;}
-footer {visibility: hidden;}
-#MainMenu {visibility: hidden;}
+        /* Remove white/gray box behind input */
+        .stBottom, .stBottom > div,
+        section[data-testid="stBottom"],
+        section[data-testid="stBottom"] > div {
+            background-color: transparent !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
 
-/* Remove white background container (MAIN FIX) */
-div[data-testid="stChatInputContainer"] {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-}
+        /* Make textarea background transparent */
+        textarea[data-testid="stChatInputTextArea"],
+        textarea[data-testid="stChatInputTextArea"]:focus,
+        textarea[data-testid="stChatInputTextArea"]:hover {
+            background-color: transparent !important;
+            box-shadow: none !important;
+            outline: none !important;
+        }
 
-/* Remove inner wrapper background */
-div[data-testid="stChatInput"] {
-    background: transparent !important;
-}
-
-/* Style the input box properly */
-textarea[data-testid="stChatInputTextArea"] {
-    background-color: #2b2b2b !important;   /* clean dark */
-    color: white !important;                /* visible text */
-    border-radius: 18px !important;
-    padding: 12px !important;
-    border: 1px solid #444 !important;
-}
-
-/* Placeholder color */
-textarea::placeholder {
-    color: #aaaaaa !important;
-}
-
-</style>
+        /* Make outer container transparent */
+        .e15xmbo01 {
+            background-color: transparent !important;
+        }
+    </style>
 """, unsafe_allow_html=True)
 
 # -----------------------------
@@ -926,8 +920,7 @@ elif st.session_state.page == "AI Coach":
             with st.chat_message(m["role"]):
                 st.markdown(m["content"])
         st.markdown('</div>', unsafe_allow_html=True)
-        st.markdown("<div style='height:120px'></div>", unsafe_allow_html=True)
-        if prompt := st.chat_input("🗨 Ask your career question..."):
+        if prompt := st.chat_input("💬 Ask your career question..."):
             st.session_state.messages.append({"role": "user", "content": prompt})
             with st.chat_message("user"):
                 st.markdown(prompt)
