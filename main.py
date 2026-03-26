@@ -12,7 +12,6 @@ st.markdown("""
         footer {visibility: hidden;}
         #MainMenu {visibility: hidden;}
 
-        /* Remove all backgrounds */
         .stBottom, .stBottom > div,
         section[data-testid="stBottom"],
         section[data-testid="stBottom"] > div {
@@ -21,13 +20,6 @@ st.markdown("""
             border: none !important;
         }
 
-        /* Add padding at bottom so content
-        doesn't hide behind input box */
-        .main .block-container {
-            padding-bottom: 200px !important;
-        }
-
-        /* Textarea transparent */
         textarea[data-testid="stChatInputTextArea"],
         textarea[data-testid="stChatInputTextArea"]:focus,
         textarea[data-testid="stChatInputTextArea"]:hover {
@@ -924,8 +916,9 @@ elif st.session_state.page == "AI Coach":
         for m in st.session_state.messages:
             with st.chat_message(m["role"]):
                 st.markdown(m["content"])
-        st.markdown('</div>', unsafe_allow_html=True)
-        if prompt := st.chat_input("🗨 Ask your career question..."):
+            st.markdown('</div>', unsafe_allow_html=True)
+            st.markdown("<br><br><br>", unsafe_allow_html=True)
+            if prompt := st.chat_input("🗨 Ask your career question..."):
             st.session_state.messages.append({"role": "user", "content": prompt})
             with st.chat_message("user"):
                 st.markdown(prompt)
