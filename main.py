@@ -7,31 +7,34 @@ from dotenv import load_dotenv
 from groq import Groq
 
 st.markdown("""
-    <style>
-        header {visibility: hidden;}
-        footer {visibility: hidden;}
-        #MainMenu {visibility: hidden;}
+<style>
 
-        .stBottom, .stBottom > div,
-        section[data-testid="stBottom"],
-        section[data-testid="stBottom"] > div {
-            background-color: transparent !important;
-            box-shadow: none !important;
-            border: none !important;
-        }
+/* Hide default UI */
+header {visibility: hidden;}
+footer {visibility: hidden;}
+#MainMenu {visibility: hidden;}
 
-        textarea[data-testid="stChatInputTextArea"],
-        textarea[data-testid="stChatInputTextArea"]:focus,
-        textarea[data-testid="stChatInputTextArea"]:hover {
-            background-color: transparent !important;
-            box-shadow: none !important;
-            outline: none !important;
-        }
+/* Remove white background behind chat input */
+div[data-testid="stChatInputContainer"] {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
 
-        .e15xmbo01 {
-            background-color: transparent !important;
-        }
-    </style>
+/* Remove inner wrapper background */
+div[data-testid="stChatInput"] {
+    background-color: transparent !important;
+}
+
+/* Style the input itself */
+textarea[data-testid="stChatInputTextArea"] {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    color: white !important;
+}
+
+</style>
 """, unsafe_allow_html=True)
 
 # -----------------------------
@@ -916,9 +919,9 @@ elif st.session_state.page == "AI Coach":
         for m in st.session_state.messages:
             with st.chat_message(m["role"]):
                 st.markdown(m["content"])
-            st.markdown('</div>', unsafe_allow_html=True)
-            st.markdown("<br><br><br>", unsafe_allow_html=True)
-            if prompt := st.chat_input("🗨 Ask your career question..."):
+                st.markdown('</div>', unsafe_allow_html=True)
+        st.markdown("<div style='height:120px'></div>", unsafe_allow_html=True)
+        if prompt := st.chat_input("🗨 Ask your career question..."):
             st.session_state.messages.append({"role": "user", "content": prompt})
             with st.chat_message("user"):
                 st.markdown(prompt)
