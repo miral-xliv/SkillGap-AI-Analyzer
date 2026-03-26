@@ -22,26 +22,24 @@ st.markdown("""
             border: none !important;
         }
 
-        /* Outer container — no red ring */
-        div[data-testid="stChatInputContainer"] {
+        /* Target exact outer container */
+        .e15xmbo01 {
             background-color: transparent !important;
             border: 1.5px solid #00acc1 !important;
             border-radius: 25px !important;
             box-shadow: none !important;
-            outline: none !important;
-            padding: 2px !important;
         }
 
-        div[data-testid="stChatInputContainer"]:focus-within {
+        .e15xmbo01:focus-within {
             border: 1.5px solid #00acc1 !important;
             box-shadow: none !important;
             outline: none !important;
         }
 
-        /* Inner textarea — transparent, no border */
-        div[data-testid="stChatInputContainer"] textarea,
-        div[data-testid="stChatInputContainer"] textarea:focus,
-        div[data-testid="stChatInputContainer"] textarea:hover {
+        /* Target exact textarea */
+        textarea[data-testid="stChatInputTextArea"],
+        textarea[data-testid="stChatInputTextArea"]:focus,
+        textarea[data-testid="stChatInputTextArea"]:hover {
             background-color: transparent !important;
             border: none !important;
             border-radius: 25px !important;
@@ -53,9 +51,9 @@ st.markdown("""
         }
 
         /* Send button */
-        div[data-testid="stChatInputContainer"] button,
-        div[data-testid="stChatInputContainer"] button:focus,
-        div[data-testid="stChatInputContainer"] button:hover {
+        .e15xmbo01 button,
+        .e15xmbo01 button:focus,
+        .e15xmbo01 button:hover {
             background-color: transparent !important;
             border: none !important;
             box-shadow: none !important;
