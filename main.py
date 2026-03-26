@@ -925,9 +925,7 @@ elif st.session_state.page == "AI Coach":
             with st.chat_message(m["role"]):
                 st.markdown(m["content"])
         st.markdown('</div>', unsafe_allow_html=True)
-       prompt = st.text_input("", placeholder="🗨 Ask your career question...", key="chat_q", label_visibility="collapsed")
-send_btn = st.button("Send ➤")
-if send_btn and prompt:
+        if prompt := st.chat_input("🗨 Ask your career question..."):
             st.session_state.messages.append({"role": "user", "content": prompt})
             with st.chat_message("user"):
                 st.markdown(prompt)
