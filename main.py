@@ -8,37 +8,37 @@ from groq import Groq
 
 st.markdown("""
 <style>
-    /* 1. Force the app background to cover everything */
-    .stApp {
-        background: linear-gradient(to bottom, #e0f2f1, #ffffff) !important;
-        background-attachment: fixed !important;
-    }
 
-    /* 2. Hide headers/footers */
-    header, footer, #MainMenu {visibility: hidden !important;}
+/* Keep this same */
+header {visibility: hidden;}
+footer {visibility: hidden;}
+#MainMenu {visibility: hidden;}
 
-    /* 3. THE NUCLEAR FIX: Force EVERYTHING in the bottom section to be transparent */
-    section[data-testid="stBottom"] *, 
-    div[data-testid="stBottomBlockContainer"] * {
-        background-color: transparent !important;
-        border: none !important;
-        box-shadow: none !important;
-    }
+/* Remove bottom white background */
+section[data-testid="stBottom"] {
+    background: transparent !important;
+}
 
-    /* 4. RE-APPLY STYLE TO JUST THE INPUT BOX */
-    /* Since we made everything transparent above, we must specifically color the text area again */
-    textarea[data-testid="stChatInputTextArea"] {
-        background-color: rgba(0, 0, 0, 0.05) !important; /* Light grey tint so you can see it */
-        border: 1px solid rgba(0, 0, 0, 0.1) !important;
-        border-radius: 15px !important;
-        color: inherit !important;
-    }
+/* Remove chat input outer container */
+div[data-testid="stChatInputContainer"] {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
 
-    /* 5. Fix the container height so it doesn't overlap your buttons */
-    div[data-testid="stChatInputContainer"] {
-        padding-top: 10px !important;
-        padding-bottom: 20px !important;
-    }
+/* Remove inner wrapper */
+div[data-testid="stChatInput"] {
+    background: transparent !important;
+    border: none !important;
+}
+
+/* Keep input visible but clean */
+textarea[data-testid="stChatInputTextArea"] {
+    background: rgba(255,255,255,0.08) !important;
+    color: inherit !important;
+    border: none !important;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
