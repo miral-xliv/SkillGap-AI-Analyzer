@@ -12,7 +12,7 @@ st.markdown("""
         footer {visibility: hidden;}
         #MainMenu {visibility: hidden;}
 
-        /* Remove white/gray box behind input */
+        /* Remove all backgrounds */
         .stBottom, .stBottom > div,
         section[data-testid="stBottom"],
         section[data-testid="stBottom"] > div {
@@ -21,7 +21,13 @@ st.markdown("""
             border: none !important;
         }
 
-        /* Make textarea background transparent */
+        /* Add padding at bottom so content
+        doesn't hide behind input box */
+        .main .block-container {
+            padding-bottom: 100px !important;
+        }
+
+        /* Textarea transparent */
         textarea[data-testid="stChatInputTextArea"],
         textarea[data-testid="stChatInputTextArea"]:focus,
         textarea[data-testid="stChatInputTextArea"]:hover {
@@ -30,7 +36,6 @@ st.markdown("""
             outline: none !important;
         }
 
-        /* Make outer container transparent */
         .e15xmbo01 {
             background-color: transparent !important;
         }
