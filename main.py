@@ -8,31 +8,43 @@ from groq import Groq
 
 st.markdown("""
 <style>
+    /* 1. Hide Header & Footer */
+    header, footer, #MainMenu {
+        visibility: hidden;
+        height: 0;
+    }
 
-/* Remove entire bottom block */
-section[data-testid="stBottom"] {
-    background: transparent !important;
-}
+    /* 2. THE FIX: Remove the white background from the bottom area */
+    /* We target both the section and the inner block container */
+    section[data-testid="stBottom"], 
+    div[data-testid="stBottomBlockContainer"] {
+        background: transparent !important;
+        background-color: transparent !important;
+        border: none !important;
+    }
 
-/* Remove ALL wrappers inside chat input */
-section[data-testid="stBottom"] * {
-    background: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
-}
+    /* 3. Clean up the Chat Input Container */
+    div[data-testid="stChatInputContainer"] {
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+        padding-bottom: 30px; /* Gives the input some "breathing room" from the bottom edge */
+    }
 
-/* Restore ONLY textarea styling */
-textarea[data-testid="stChatInputTextArea"] {
-    background: rgba(255,255,255,0.08) !important; /* slight visible input */
-    color: inherit !important;
-    border-radius: 8px !important;
-    padding: 10px !important;
-}
+    /* 4. Style the Input Field itself */
+    /* This creates the subtle grey/translucent box you see in your image */
+    textarea[data-testid="stChatInputTextArea"] {
+        background-color: rgba(0, 0, 0, 0.05) !important; /* Light grey tint */
+        border: 1px solid rgba(0, 0, 0, 0.1) !important; /* Thin border */
+        border-radius: 12px !important;
+        color: inherit !important;
+    }
 
-/* Placeholder */
-textarea::placeholder {
-    color: #777 !important;
-}
+    /* 5. Optional: Remove the white 'glow' that sometimes appears on focus */
+    div[data-testid="stChatInput"] {
+        border: none !important;
+        background: transparent !important;
+    }
 
 </style>
 """, unsafe_allow_html=True)
