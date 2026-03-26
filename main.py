@@ -7,34 +7,30 @@ from dotenv import load_dotenv
 from groq import Groq
 
 st.markdown("""
-    <style>
-        header {visibility: hidden;}
-        footer {visibility: hidden;}
-        #MainMenu {visibility: hidden;}
+<style>
 
-        /* Remove white/gray box behind input */
-        .stBottom, .stBottom > div,
-        section[data-testid="stBottom"],
-        section[data-testid="stBottom"] > div {
-            background-color: transparent !important;
-            box-shadow: none !important;
-            border: none !important;
-        }
+/* Remove white box behind input */
+div[data-testid="stChatInputContainer"] {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
 
-        /* Make textarea background transparent */
-        textarea[data-testid="stChatInputTextArea"],
-        textarea[data-testid="stChatInputTextArea"]:focus,
-        textarea[data-testid="stChatInputTextArea"]:hover {
-            background-color: transparent !important;
-            box-shadow: none !important;
-            outline: none !important;
-        }
+/* Keep input clean */
+textarea[data-testid="stChatInputTextArea"] {
+    background-color: rgba(255,255,255,0.1) !important; /* light transparent */
+    color: black !important;  /* clear text */
+    border-radius: 20px !important;
+    padding: 10px !important;
+    border: 1px solid rgba(0,0,0,0.2) !important;
+}
 
-        /* Make outer container transparent */
-        .e15xmbo01 {
-            background-color: transparent !important;
-        }
-    </style>
+/* Placeholder */
+textarea::placeholder {
+    color: #555 !important;
+}
+
+</style>
 """, unsafe_allow_html=True)
 
 # -----------------------------
