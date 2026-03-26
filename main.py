@@ -12,9 +12,8 @@ st.markdown("""
         footer {visibility: hidden;}
         #MainMenu {visibility: hidden;}
 
-        /* Remove all backgrounds */
+        /* Remove white/gray box behind input */
         .stBottom, .stBottom > div,
-        .stChatInput, .stChatInput > div,
         section[data-testid="stBottom"],
         section[data-testid="stBottom"] > div {
             background-color: transparent !important;
@@ -22,42 +21,18 @@ st.markdown("""
             border: none !important;
         }
 
-        /* Target exact outer container */
-        .e15xmbo01 {
-            background-color: transparent !important;
-            border: 1.5px solid #00acc1 !important;
-            border-radius: 25px !important;
-            box-shadow: none !important;
-        }
-
-        .e15xmbo01:focus-within {
-            border: 1.5px solid #00acc1 !important;
-            box-shadow: none !important;
-            outline: none !important;
-        }
-
-        /* Target exact textarea */
+        /* Make textarea background transparent */
         textarea[data-testid="stChatInputTextArea"],
         textarea[data-testid="stChatInputTextArea"]:focus,
         textarea[data-testid="stChatInputTextArea"]:hover {
             background-color: transparent !important;
-            border: none !important;
-            border-radius: 25px !important;
-            padding: 10px 18px !important;
-            font-size: 15px !important;
-            color: #333333 !important;
             box-shadow: none !important;
             outline: none !important;
         }
 
-        /* Send button */
-        .e15xmbo01 button,
-        .e15xmbo01 button:focus,
-        .e15xmbo01 button:hover {
+        /* Make outer container transparent */
+        .e15xmbo01 {
             background-color: transparent !important;
-            border: none !important;
-            box-shadow: none !important;
-            outline: none !important;
         }
     </style>
 """, unsafe_allow_html=True)
