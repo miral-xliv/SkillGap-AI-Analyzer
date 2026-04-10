@@ -6,6 +6,16 @@ import plotly.express as px
 from dotenv import load_dotenv
 from groq import Groq
 
+# -----------------------------
+# CONFIG & API
+# -----------------------------
+st.set_page_config(
+    page_title="SkillGap AI Analyzer",
+    page_icon="🚀",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
 st.markdown("""
 <style>
 
@@ -51,15 +61,7 @@ from engine.optimizer import get_gap_analysis, get_humanized_projects
 from engine.generator import generate_assets
 from engine.advisor import get_career_advice
 
-# -----------------------------
-# CONFIG & API
-# -----------------------------
-st.set_page_config(
-    page_title="SkillGap AI Analyzer",
-    page_icon="🚀",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
+
 load_dotenv()
 try:
     api_key = st.secrets["GROQ_API_KEY"]
