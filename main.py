@@ -7,52 +7,6 @@ from dotenv import load_dotenv
 from groq import Groq
 
 # -----------------------------
-# CONFIG & API
-# -----------------------------
-st.set_page_config(
-    page_title="SkillGap AI Analyzer",
-    page_icon="🚀",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
-
-st.markdown("""
-<style>
-
-/* Keep this same */
-header {visibility: hidden;}
-footer {visibility: hidden;}
-#MainMenu {visibility: hidden;}
-
-/* Remove bottom white background */
-section[data-testid="stBottom"] {
-    background: transparent !important;
-}
-
-/* Remove chat input outer container */
-div[data-testid="stChatInputContainer"] {
-    background: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
-}
-
-/* Remove inner wrapper */
-div[data-testid="stChatInput"] {
-    background: transparent !important;
-    border: none !important;
-}
-
-/* Keep input visible but clean */
-textarea[data-testid="stChatInputTextArea"] {
-    background: rgba(255,255,255,0.08) !important;
-    color: inherit !important;
-    border: none !important;
-}
-
-</style>
-""", unsafe_allow_html=True)
-
-# -----------------------------
 # BACKEND IMPORTS
 # -----------------------------
 from engine.parser import extract_text_from_pdf, parse_resume_to_json
@@ -61,7 +15,15 @@ from engine.optimizer import get_gap_analysis, get_humanized_projects
 from engine.generator import generate_assets
 from engine.advisor import get_career_advice
 
-
+# -----------------------------
+# CONFIG & API
+# -----------------------------
+st.set_page_config(
+    page_title="SkillGap AI Analyzer",
+    page_icon="🚀",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 load_dotenv()
 try:
     api_key = st.secrets["GROQ_API_KEY"]
