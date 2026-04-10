@@ -6,4 +6,3 @@ PyMuPDF
 pandas
 plotly
 fpdf
-torch
